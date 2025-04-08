@@ -151,9 +151,9 @@ namespace DotNetToJScript
         {
             try
             {
-                if (Environment.Version.Major != 2)
+                if (Environment.Version.Major != 4)
                 {
-                    WriteError("This tool should only be run on v2 of the CLR");
+                    WriteError("This tool should only be run on v4 of the CLR");
                     Environment.Exit(1);
                 }
 
@@ -235,10 +235,12 @@ namespace DotNetToJScript
                         Environment.Exit(1);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     WriteError("Error: loading assembly information.");
                     WriteError("The generated script might not work correctly");
+                    WriteError(ex.Message);
+                    WriteError(ex.InnerException?.Message);
                 }
 
                 BinaryFormatter fmt = new BinaryFormatter();
